@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C1Ggun – Product Designer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-logo">
+      <span class="logo-dot"></span><span class="logo-text">infinite</span>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero"> 
+    <div class="hero-left">
+      <p class="hero-label">PRODUCT DESIGNER</p>
+      <h1 class="hero-name">C1Ggun<br />Räikkönen</h1>
+      <div class="hero-tags">
+        <span class="tag tag-primary">Subscribe</span>
+        <span class="tag tag-outline">Portfolio →</span>
+      </div>
+      <p class="hero-desc">
+        I craft digital experiences that bridge beauty and function.
+        Passionate about clean interfaces and meaningful interactions.
+      </p>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-img-wrap">
+        <div class="blob"></div>
+        <img
+          src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=480&q=80"
+          alt="Designer portrait"
+          class="hero-photo"
+        />
+        <div class="deco deco-dots"></div>
+        <div class="deco deco-circle"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES + TAGLINE -->
+  <section class="lower">
+    <!-- Service Cards -->
+    <div class="services">
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <h3>User Research</h3>
+        <p>Understanding people through interviews and data.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
+        <h3>Visual Design</h3>
+        <p>Pixel-perfect UI with strong design systems.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"/></svg>
+        </div>
+        <h3>User Testing</h3>
+        <p>Validating concepts early and iterating fast.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Prototyping</h3>
+        <p>High-fidelity prototypes that feel like the real thing.</p>
+      </div>
+    </div>
+
+    <!-- Tagline -->
+    <div class="tagline">
+      <p class="tagline-sub">소개</p>
+      <h2 class="tagline-heading">더 나은 디자인,<br />더 나은 경험</h2>
+      <p class="tagline-body">
+        8년 이상 디지털 제품을 디자인해 온 경험을 바탕으로,
+        스타트업과 대기업이 사용자가 사랑하는 인터페이스를 만들 수 있도록 돕습니다.
+        전략 수립부터 고품질 최종 산출물까지 — 모두 함께합니다.
+      </p>
+      <a href="#" class="btn-primary">연락하기</a>
+    </div>
+  </section>
+
+  <!-- SERVICES DETAIL -->
+  <section class="services-detail">
+    <!-- Left: video/image block -->
+    <div class="sd-left">
+      <div class="sd-media">
+        <img
+          src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=560&q=80"
+          alt="Designer working"
+          class="sd-photo"
+        />
+        <div class="sd-bar">
+          <span class="sd-bar-dot"></span>
+          <div class="sd-bar-track"><div class="sd-bar-fill"></div></div>
+          <span class="sd-bar-time">0:42</span>
+        </div>
+        <div class="sd-deco-dots"></div>
+        <div class="sd-deco-squares">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <p class="sd-label">나의 역할</p>
+      <h2 class="sd-heading">내가 할 수 있는<br />모든 것</h2>
+      <p class="sd-body">
+        사용자 중심의 사고를 바탕으로 아이디어를 구체적인 경험으로 만들어냅니다.
+        전략, 디자인, 프로토타입까지 전 과정을 함께합니다.
+      </p>
+      <a href="#" class="btn-primary">더 알아보기</a>
+    </div>
+
+    <!-- Right: service grid -->
+    <div class="sd-right">
+      <div class="sd-card">
+        <div class="sd-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h4>브랜드 아이덴티티</h4>
+        <p>브랜드의 본질을 시각적 언어로 풀어냅니다.</p>
+        <a href="#" class="sd-link">자세히 보기 →</a>
+      </div>
+      <div class="sd-card">
+        <div class="sd-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h4>프로덕트 디자인</h4>
+        <p>사용자가 직관적으로 이해하는 제품을 설계합니다.</p>
+        <a href="#" class="sd-link">자세히 보기 →</a>
+      </div>
+      <div class="sd-card">
+        <div class="sd-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h4>인터랙션 디자인</h4>
+        <p>움직임과 피드백으로 생동감 있는 경험을 만듭니다.</p>
+        <a href="#" class="sd-link">자세히 보기 →</a>
+      </div>
+      <div class="sd-card">
+        <div class="sd-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        </div>
+        <h4>앱 디자인</h4>
+        <p>모바일 환경에 최적화된 앱 UI/UX를 제공합니다.</p>
+        <a href="#" class="sd-link">자세히 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
