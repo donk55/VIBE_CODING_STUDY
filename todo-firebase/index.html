@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>할일 앱</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f2f5;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 16px;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 520px;
+      padding: 32px 28px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h1 span.icon {
+      font-size: 1.4rem;
+    }
+
+    /* 입력 영역 */
+    .input-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .input-row input {
+      flex: 1;
+      padding: 12px 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      color: #2d3748;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-row input:focus {
+      border-color: #667eea;
+    }
+
+    .input-row input::placeholder {
+      color: #a0aec0;
+    }
+
+    .btn-add {
+      padding: 12px 18px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    .btn-add:hover { opacity: 0.9; }
+    .btn-add:active { transform: scale(0.97); }
+
+    /* 필터 탭 */
+    .filters {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .filter-btn {
+      flex: 1;
+      padding: 8px 0;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      background: transparent;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #718096;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-color: transparent;
+      color: #fff;
+    }
+
+    /* 할일 목록 */
+    .todo-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .todo-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: #f7fafc;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      transition: box-shadow 0.2s;
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .todo-item:hover {
+      box-shadow: 0 2px 12px rgba(102, 126, 234, 0.12);
+    }
+
+    /* 체크박스 */
+    .todo-check {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      accent-color: #667eea;
+      cursor: pointer;
+    }
+
+    /* 할일 텍스트 / 인라인 편집 */
+    .todo-text {
+      flex: 1;
+      font-size: 0.95rem;
+      color: #2d3748;
+      word-break: break-word;
+    }
+
+    .todo-text.done {
+      text-decoration: line-through;
+      color: #a0aec0;
+    }
+
+    .todo-edit-input {
+      flex: 1;
+      padding: 4px 8px;
+      border: 2px solid #667eea;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      color: #2d3748;
+      outline: none;
+    }
+
+    /* 아이콘 버튼 */
+    .btn-icon {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: background 0.15s;
+      flex-shrink: 0;
+    }
+
+    .btn-edit  { color: #667eea; }
+    .btn-save  { color: #48bb78; }
+    .btn-delete{ color: #fc8181; }
+
+    .btn-icon:hover { background: #edf2ff; }
+
+    /* 빈 상태 */
+    .empty-state {
+      text-align: center;
+      padding: 40px 0 20px;
+      color: #a0aec0;
+      font-size: 0.9rem;
+    }
+
+    .empty-state .emoji { font-size: 2.5rem; display: block; margin-bottom: 10px; }
+
+    /* 하단 요약 */
+    .summary {
+      margin-top: 20px;
+      font-size: 0.82rem;
+      color: #a0aec0;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><span class="icon">✅</span> 할일 목록</h1>
+
+    <div class="input-row">
+      <input type="text" id="todoInput" placeholder="새 할일을 입력하세요..." />
+      <button class="btn-add" id="addBtn">추가</button>
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">전체</button>
+      <button class="filter-btn" data-filter="active">미완료</button>
+      <button class="filter-btn" data-filter="done">완료</button>
+    </div>
+
+    <ul class="todo-list" id="todoList"></ul>
+
+    <div class="summary" id="summary"></div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
